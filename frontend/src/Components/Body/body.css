@@ -1,0 +1,40 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
+  }
+  
+  .App-header {
+    background-color: red;
+    padding: 1rem 0;
+    text-align: center;
+  }
+  
+  nav a {
+    color: white;
+    margin: 0 1rem;
+    text-decoration: none;
+    font-size: 1.2rem;
+  }
+  
+  .content {
+    text-align: center;
+    margin: 2rem 0;
+  }
+  
+  .view-drivers {
+    background-color: red;
+    border: none;
+    color: white;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .view-drivers:hover {
+    background-color: darkred;
+  }
+  

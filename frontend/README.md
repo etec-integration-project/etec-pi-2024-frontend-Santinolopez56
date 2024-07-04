@@ -14,7 +14,7 @@ cd .\frontend\
 
 ## Creacion de contenedor
 ```
-docker build -t react-image .\frontend\ 
+docker build -t react-image .
 
 docker compose up --build
 ```

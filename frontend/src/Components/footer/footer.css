@@ -1,0 +1,39 @@
+@import URL(https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap);
+@import URL(https://fonts.googleapis.com/css2?family=Pathway+Extreme:wght@300&display=swap);
+
+footer {
+    background-color: white; 
+    color: black;
+    padding: 41px;
+    margin-top: 40px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center; 
+    width: 100%; 
+}
+
+.social-icons a {
+    text-decoration: none;
+    margin: 0 10px; 
+}
+
+.social-icons img {
+    width: 25px;
+    height: 25px;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 0.8rem;
+}

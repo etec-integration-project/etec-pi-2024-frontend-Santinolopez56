@@ -9,6 +9,7 @@ function Login() {
 
   const handleLogin = (e) => {
     e.preventDefault();
+    // Lógica de inicio de sesión aquí
   };
 
   return (
@@ -48,7 +49,7 @@ function Login() {
         <button type="submit">Iniciar Sesión</button>
       </form>
       <div className="register-link">
-        <p>No tiene una cuenta? <Link to="/register">Registrarse</Link></p>
+        <p>¿No tiene una cuenta? <Link to="/register">Registrarse</Link></p>
       </div>
     </div>
   );

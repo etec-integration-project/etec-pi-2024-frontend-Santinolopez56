@@ -9,6 +9,7 @@ function Register() {
 
   const handleRegister = (e) => {
     e.preventDefault();
+    // Lógica de registro aquí
   };
 
   return (

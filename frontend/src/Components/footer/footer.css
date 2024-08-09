@@ -2,38 +2,52 @@
 @import URL(https://fonts.googleapis.com/css2?family=Pathway+Extreme:wght@300&display=swap);
 
 footer {
-    background-color: white; 
-    color: black;
-    padding: 41px;
-    margin-top: 40px;
+  background-color: #333; /* Fondo gris oscuro */
+  color: #fff; /* Texto blanco */
+  padding: 40px 20px;
+  margin-top: 40px;
+  font-family: 'Pathway Extreme', sans-serif;
 }
 
 .footer-content {
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    max-width: 1200px;
-    padding: 0 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
 }
 
 .social-icons {
-    display: flex;
-    justify-content: center; 
-    width: 100%; 
+  display: flex;
+  justify-content: center;
+  gap: 20px;
 }
 
 .social-icons a {
-    text-decoration: none;
-    margin: 0 10px; 
+  display: inline-block;
+  transition: transform 0.3s ease;
 }
 
 .social-icons img {
-    width: 25px;
-    height: 25px;
+  width: 30px;
+  height: 30px;
+  filter: brightness(0); /* Iconos negros */
+  transition: transform 0.3s ease;
 }
 
-.copyright {
-    text-align: center;
-    margin-top: 20px;
-    font-size: 0.8rem;
+.social-icons img:hover {
+  transform: scale(1.1); 
+}
+
+.footer-bottom {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 0.9rem;
+  color: #fff; /* Texto blanco */
+}
+
+.footer-bottom p {
+  margin: 0;
 }

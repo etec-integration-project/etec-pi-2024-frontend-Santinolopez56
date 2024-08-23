@@ -7,9 +7,18 @@ function Login() {
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    // Lógica de inicio de sesión aquí
+    if (password === repeatPassword) {
+      try {
+            await axios.post("http://localhost:3000/creacionuser/login", { email, password, repeatPassword });
+            alert("Su cuenta ha sido creada exitosamente");
+          } catch (error) {
+          alert("Hubo un error al crear la cuenta");
+          }
+    } else {
+      alert("Sus contraseñas no coinciden");
+  }
   };
 
   return (

@@ -1,48 +1,33 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Body from './Components/Body/body.jsx'
-import Header from './Components/header/header.jsx'
-import Footer from './Components/footer/footer.jsx'
-import Catalogo from './Components/catalogo/catalogo.jsx'
+import Body from './Components/Body/body.jsx';
+import Header from './Components/header/header.jsx';
+import Footer from './Components/footer/footer.jsx';
+import Catalogo from './Components/catalogo/catalogo.jsx';
 import Register from './Components/register/register.jsx';
 import Login from './Components/login/login.jsx';
 
+// Componente Layout para encapsular Header y Footer
+function Layout({ children }) {
+  return (
+    <>
+      <Header />
+      {children}
+      <Footer />
+    </>
+  );
+}
 
 function App() {
   return (
     <BrowserRouter>
-    <Routes>
-      <Route path='/' element={<>
-        <Header></Header>
-        <Body></Body>
-        <Footer />
-      </>
-      }
-      />
-      <Route path='/catalogo' element={<>
-        <Header></Header>
-        <Catalogo></Catalogo>
-        <Footer />
-      </>
-      }
-      />
-      <Route path='/login' element={<>
-        <Header></Header>
-        <Login></Login>
-        <Footer />
-      </>
-      }
-      />
-      <Route path='/register' element={<>
-        <Header></Header>
-        <Register></Register>
-        <Footer />
-      </>
-      }
-      />
-    </Routes>
+      <Routes>
+        <Route path='/' element={<Layout><Body /></Layout>} />
+        <Route path='/catalogo' element={<Layout><Catalogo /></Layout>} />
+        <Route path='/login' element={<Layout><Login /></Layout>} />
+        <Route path='/register' element={<Layout><Register /></Layout>} />
+      </Routes>
     </BrowserRouter>
-    
   );
 }
 

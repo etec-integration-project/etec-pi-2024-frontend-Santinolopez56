@@ -25,7 +25,7 @@ Y con este comando vas a poder en tu naveador vas a poder ver la pagina web
 localhost:3000
 ```
 
-## Modificaciones (se va a solucionar en un futuro)
+## Modificaciones
 Cuando nosotros queremos modificar el codigo, vamos a tener que reiniciar el contenedor
 ```
 docker compose down --remove-orphans

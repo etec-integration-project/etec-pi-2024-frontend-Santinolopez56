@@ -1,15 +1,25 @@
 import React, { useState } from 'react';
 import './register.css';
+import axios from 'axios';
 
-function Register() {
+export default function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
   const [name, setName] = useState('');
 
-  const handleRegister = (e) => {
+  const handleRegister = async (e) => {
     e.preventDefault();
-    // Lógica de registro aquí
+    if (password === repeatPassword) {
+      try {
+        const response = await axios.post("http://localhost:3000/creacionusers/registrar", { name, password, email });
+        alert(response.data.mensaje);
+      } catch (error) {
+        alert("No se pudo crear la cuenta");
+      }
+    } else {
+      alert("Las contraseñas no son iguales");
+    }
   };
 
   return (
@@ -61,5 +71,3 @@ function Register() {
     </div>
   );
 }
-
-export default Register;

@@ -22,7 +22,7 @@ docker compose up --build
 ## Ver pagina web
 Y con este comando vas a poder en tu naveador vas a poder ver la pagina web
 ```
-localhost:3000
+localhost:8080
 ```
 
 ## Modificaciones

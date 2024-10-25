@@ -4,7 +4,7 @@ import './login.css';
 import axios from 'axios';
 
 export default function Login() {
-  const [name, setName] = useState("");
+  const [username, setUsername] = useState(""); // Cambiado de "name" a "username"
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
 
@@ -12,7 +12,8 @@ export default function Login() {
     e.preventDefault();
     if (password === repeatPassword) {
       try {
-        const response = await axios.post("http://localhost:3000/creaionusers/iniciar-sesion", { name, password });
+        // Usar "username" en lugar de "name" para coincidir con el backend
+        const response = await axios.post("http://localhost:3000/creacionusers/iniciar-sesion", { username, password });
         alert("Inicio de sesión exitoso");
         console.log(response.data.token);
       } catch (error) {
@@ -32,8 +33,8 @@ export default function Login() {
           <input
             type="text"
             id="username"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
+            value={username} // Cambiado de "name" a "username"
+            onChange={(e) => setUsername(e.target.value)} // Cambiado de "setName" a "setUsername"
             required
           />
         </div>

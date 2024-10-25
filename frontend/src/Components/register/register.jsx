@@ -6,16 +6,18 @@ export default function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
-  const [name, setName] = useState('');
+  const [username, setUsername] = useState(''); // Cambiado de "name" a "username"
 
   const handleRegister = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
       try {
-        const response = await axios.post("http://localhost:3000/creacionusers/registrar", { name, password, email });
+        // Usar "username" en lugar de "name"
+        const response = await axios.post("http://localhost:3000/creacionusers/registrar", { username, password, email });
         alert(response.data.mensaje);
       } catch (error) {
-        alert("No se pudo crear la cuenta");
+        // Mejor manejo del error para mostrar el mensaje de la respuesta
+        alert(error.response?.data?.mensaje || "No se pudo crear la cuenta");
       }
     } else {
       alert("Las contraseñas no son iguales");
@@ -27,12 +29,12 @@ export default function Register() {
       <h1>Registrarse</h1>
       <form onSubmit={handleRegister}>
         <div className="form-group">
-          <label htmlFor="name">Nombre de Usuario:</label>
+          <label htmlFor="username">Nombre de Usuario:</label>
           <input 
             type="text" 
-            id="name" 
-            value={name} 
-            onChange={(e) => setName(e.target.value)} 
+            id="username" 
+            value={username} 
+            onChange={(e) => setUsername(e.target.value)} 
             required 
           />
         </div>

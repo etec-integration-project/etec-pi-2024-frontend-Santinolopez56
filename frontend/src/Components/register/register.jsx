@@ -13,7 +13,7 @@ export default function Register() {
     if (password === repeatPassword) {
       try {
         // Usar "username" en lugar de "name"
-        const response = await axios.post("http://localhost:3000/creacionusers/registrar", { username, password, email });
+        const response = await axios.post("/app/creacionusers/registrar", { username, password, email });
         alert(response.data.mensaje);
       } catch (error) {
         // Mejor manejo del error para mostrar el mensaje de la respuesta

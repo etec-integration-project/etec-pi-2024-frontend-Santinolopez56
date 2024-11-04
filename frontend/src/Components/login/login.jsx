@@ -13,7 +13,7 @@ export default function Login() {
     if (password === repeatPassword) {
       try {
         // Usar "username" en lugar de "name" para coincidir con el backend
-        const response = await axios.post("http://localhost:3000/creacionusers/iniciar-sesion", { username, password });
+        const response = await axios.post("/app/creacionusers/iniciar-sesion", { username, password });
         alert("Inicio de sesión exitoso");
         console.log(response.data.token);
       } catch (error) {

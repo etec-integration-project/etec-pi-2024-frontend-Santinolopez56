@@ -9,6 +9,7 @@ function Catalogo() {
     const fetchData = async () => {
       try {
         const response = await axios.get('/app/productos');
+        console.log(response)
         setProducts(response.data.productos);  
       } catch (error) {
         console.error('Error fetching products:', error);

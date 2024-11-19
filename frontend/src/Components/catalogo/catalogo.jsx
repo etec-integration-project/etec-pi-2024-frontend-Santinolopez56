@@ -5,19 +5,19 @@ import './catalogo.css';
 function Catalogo() {
   const [products, setProducts] = useState([]);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     try {
-  //       const response = await axios.get('/app/productos');
-  //       console.log(response)
-  //       setProducts(response.data.productos);  
-  //     } catch (error) {
-  //       console.error('Error fetching products:', error);
-  //     }
-  //   };
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('/app/productos');
+        console.log(response)
+        setProducts(response.data.productos);  
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
+    };
 
-  //   fetchData();
-  // }, []);
+    fetchData();
+  }, []);
 
   return (
     <div className="catalog-container">

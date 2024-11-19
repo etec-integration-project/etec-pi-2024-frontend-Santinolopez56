@@ -19,13 +19,18 @@ function Layout({ children }) {
 }
 
 function App() {
+
+  localStorage.setItem('productos', JSON.stringify([]))
+
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/' element={<Layout><Body /></Layout>} />
         <Route path='/catalogo' element={<Layout><Catalogo /></Layout>} />
+        <Route path='/carrito' element={<Layout></Layout>} />
         <Route path='/login' element={<Layout><Login /></Layout>} />
         <Route path='/register' element={<Layout><Register /></Layout>} />
+        
       </Routes>
     </BrowserRouter>
   );

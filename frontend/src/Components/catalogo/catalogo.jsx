@@ -19,6 +19,27 @@ function Catalogo() {
     fetchData();
   }, []);
 
+  function añadirAlCarrito(producto) {
+    let cart = JSON.parse(localStorage.getItem('productos'))
+
+    if (cart.some(p => p.id === producto.id)) {
+      cart.forEach(p => {
+        if (p.id === producto.id) {
+          p.quantity++;
+        }
+      })
+    } else {
+      cart.push({
+        id: producto.id,
+        name: producto.name,
+        price: producto.price,
+        quantity: 1
+      })
+    }
+
+    localStorage.setItem('productos', JSON.stringify(cart))
+  }
+
   return (
     <div className="catalog-container">
       {products.length > 0 ? (
@@ -27,7 +48,7 @@ function Catalogo() {
             <img src={product.image || 'default-image-path.png'} alt={product.name} className="product-image" />
             <h3 className="product-name">{product.name}</h3>
             <p className="product-price">${product.price}</p>
-            <button className="catalogo-buy-button">Comprar</button>
+            <button className="catalogo-buy-button" onClick={() => añadirAlCarrito(product)}>Comprar</button>
           </div>
         ))
       ) : (

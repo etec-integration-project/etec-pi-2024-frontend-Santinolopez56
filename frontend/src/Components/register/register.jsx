@@ -6,17 +6,17 @@ export default function Register() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
-  const [username, setUsername] = useState(''); // Cambiado de "name" a "username"
+  const [username, setUsername] = useState(''); 
 
   const handleRegister = async (e) => {
     e.preventDefault();
     if (password === repeatPassword) {
       try {
-        // Usar "username" en lugar de "name"
-        const response = await axios.post("/app/creacionusers/registrar", { username, password, email });
+        
+        const response = await axios.post("/app/creacionuser/registrar", { username, password, email });
         alert(response.data.mensaje);
       } catch (error) {
-        // Mejor manejo del error para mostrar el mensaje de la respuesta
+        
         alert(error.response?.data?.mensaje || "No se pudo crear la cuenta");
       }
     } else {

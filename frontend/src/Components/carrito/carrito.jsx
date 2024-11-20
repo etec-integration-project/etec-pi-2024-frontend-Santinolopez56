@@ -31,7 +31,6 @@ function Carrito() {
             }
             return product;
         }).filter(product => product.quantity > 0); 
-
         actualizarCarrito(newCart);
     }
 

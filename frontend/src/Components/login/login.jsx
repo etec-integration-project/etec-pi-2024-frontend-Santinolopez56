@@ -14,7 +14,7 @@ export default function Login() {
     if (password === repeatPassword) {
       try {
         // Incluido email en la solicitud
-        const response = await axios.post("/app/creacionusers/iniciar-sesion", { email, username, password });
+        const response = await axios.post("/app/creacionuser/iniciar-sesion", { email, username, password });
         alert("Inicio de sesión exitoso");
         console.log(response.data.token);
       } catch (error) {

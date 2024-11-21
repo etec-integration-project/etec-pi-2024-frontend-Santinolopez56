@@ -4,7 +4,7 @@ import './login.css';
 import axios from 'axios';
 
 export default function Login() {
-  const [email, setEmail] = useState(""); // Agregado para manejar el email
+  const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
@@ -13,7 +13,6 @@ export default function Login() {
     e.preventDefault();
     if (password === repeatPassword) {
       try {
-        // Incluido email en la solicitud
         const response = await axios.post("/app/creacionuser/iniciar-sesion", { email, username, password });
         alert("Inicio de sesión exitoso");
         console.log(response.data.token);

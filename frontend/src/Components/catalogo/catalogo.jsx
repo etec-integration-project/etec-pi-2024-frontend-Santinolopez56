@@ -20,6 +20,7 @@ function Catalogo() {
   }, []);
 
   function añadirAlCarrito(producto) {
+    console.log(producto, 'añadido')
     let cart = JSON.parse(localStorage.getItem('productos'))
 
     if (cart.some(p => p.id === producto.id)) {

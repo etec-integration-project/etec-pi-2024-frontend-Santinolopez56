@@ -32,6 +32,7 @@ function Catalogo() {
     } else {
       cart.push({
         id: producto.id,
+        img: producto.image,
         name: producto.name,
         price: producto.price,
         quantity: 1

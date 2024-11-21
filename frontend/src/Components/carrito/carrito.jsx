@@ -40,11 +40,18 @@ function Carrito() {
         actualizarCarrito(newCart);
     }
 
+    function realizarCompra() {
+        const carrito = localStorage.getItem('productos')
+        fetch()
+    }
+
     return (
         <div>
             {cart.length > 0 ? (
                 cart.map(product => (
                     <div key={product.id}>
+            <img src={product.image || 'default-image-path.png'} alt={product.name} className="product-image" />
+                        
                         <p>Nombre: {product.name}</p>
                         <p>Precio: {product.price}</p>
                         <p>Cantidad: {product.quantity}</p>
@@ -56,6 +63,7 @@ function Carrito() {
             ) : (
                 <p>El carrito está vacío</p>
             )}
+            <button onClick={() => realizarCompra()}>REalizar compriña</button>
         </div>
     );
 }

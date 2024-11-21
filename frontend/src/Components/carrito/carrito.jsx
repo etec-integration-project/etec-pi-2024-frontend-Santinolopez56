@@ -39,7 +39,7 @@ function Carrito() {
         actualizarCarrito(newCart)
     }
 
-    return (<>
+    return (<div>
         {cart.map(product => {
             <div key={product.id}>
                 <p>{product.name}</p>
@@ -50,7 +50,7 @@ function Carrito() {
                 <button onClick={() => eliminarProducto(product.id)}>Eliminar</button>
             </div>
         })}
-    </>)
+    </div>)
 }
 
 export default Carrito

@@ -4,7 +4,8 @@ import './login.css';
 import axios from 'axios';
 
 export default function Login() {
-  const [username, setUsername] = useState(""); // Cambiado de "name" a "username"
+  const [email, setEmail] = useState(""); // Agregado para manejar el email
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [repeatPassword, setRepeatPassword] = useState("");
 
@@ -12,8 +13,8 @@ export default function Login() {
     e.preventDefault();
     if (password === repeatPassword) {
       try {
-        // Usar "username" en lugar de "name" para coincidir con el backend
-        const response = await axios.post("/app/creacionusers/iniciar-sesion", { username, password });
+        // Incluido email en la solicitud
+        const response = await axios.post("/app/creacionusers/iniciar-sesion", { email, username, password });
         alert("Inicio de sesión exitoso");
         console.log(response.data.token);
       } catch (error) {
@@ -29,12 +30,22 @@ export default function Login() {
       <h2>Iniciar Sesión</h2>
       <form onSubmit={iniciarSesion}>
         <div className="form-group">
+          <label htmlFor="email">Correo Electrónico:</label>
+          <input
+            type="email"
+            id="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+        <div className="form-group">
           <label htmlFor="username">Nombre de Usuario:</label>
           <input
             type="text"
             id="username"
-            value={username} // Cambiado de "name" a "username"
-            onChange={(e) => setUsername(e.target.value)} // Cambiado de "setName" a "setUsername"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
             required
           />
         </div>

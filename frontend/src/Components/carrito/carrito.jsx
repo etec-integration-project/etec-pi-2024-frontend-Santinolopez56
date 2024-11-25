@@ -2,15 +2,23 @@ import React, { useEffect, useState } from 'react';
 
 function Carrito() {
     const [cart, setCart] = useState([]);
+    const [totalPrice, setTotalPrice] = useState(0);
 
     useEffect(() => {
         const products = JSON.parse(localStorage.getItem('productos')) || [];
         setCart(products);
+        calcularPrecioTotal(products);
     }, []);
 
     function actualizarCarrito(newCart) {
         setCart(newCart);
         localStorage.setItem('productos', JSON.stringify(newCart));
+        calcularPrecioTotal(newCart);
+    }
+
+    function calcularPrecioTotal(cart) {
+        const total = cart.reduce((sum, product) => sum + product.price * product.quantity, 0);
+        setTotalPrice(total);
     }
 
     function añadirUnaUnidad(id) {
@@ -41,8 +49,9 @@ function Carrito() {
     }
 
     function realizarCompra() {
-        const carrito = localStorage.getItem('productos')
-        fetch()
+        const carrito = localStorage.getItem('productos');
+        console.log("Compra realizada con el carrito:", carrito);
+        // Aquí puedes implementar la lógica para enviar la información de la compra
     }
 
     return (
@@ -50,10 +59,9 @@ function Carrito() {
             {cart.length > 0 ? (
                 cart.map(product => (
                     <div key={product.id}>
-            <img src={product.image || 'default-image-path.png'} alt={product.name} className="product-image" />
-                        
+                        <img src={product.image || 'default-image-path.png'} alt={product.name} className="product-image" />
                         <p>Nombre: {product.name}</p>
-                        <p>Precio: {product.price}</p>
+                        <p>Precio: ${product.price}</p>
                         <p>Cantidad: {product.quantity}</p>
                         <button onClick={() => añadirUnaUnidad(product.id)}>+</button>
                         <button onClick={() => restarUnaUnidad(product.id)}>-</button>
@@ -63,7 +71,8 @@ function Carrito() {
             ) : (
                 <p>El carrito está vacío</p>
             )}
-            <button onClick={() => realizarCompra()}>REalizar compriña</button>
+            <h3>Total: ${totalPrice.toFixed(2)}</h3>
+            <button onClick={() => realizarCompra()}>Realizar compra</button>
         </div>
     );
 }

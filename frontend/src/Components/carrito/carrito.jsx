@@ -51,7 +51,9 @@ function Carrito() {
     function realizarCompra() {
         const carrito = localStorage.getItem('productos');
         console.log("Compra realizada con el carrito:", carrito);
-        // Aquí puedes implementar la lógica para enviar la información de la compra
+        axios.post("/api/realizarCompra",{
+            cart:JSON.stringify(localStorage.getItem("productos"))
+        })
     }
 
     return (

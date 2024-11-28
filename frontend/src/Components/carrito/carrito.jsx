@@ -39,7 +39,7 @@ function Carrito() {
                 }
                 return product;
             })
-            .filter(product => product.quantity > 0);
+            .filter(product => product.quantity > 0); // Elimina productos con cantidad 0
         actualizarCarrito(newCart);
     }
 
@@ -49,14 +49,9 @@ function Carrito() {
     }
 
     function realizarCompra() {
-        if (cart.length === 0) {
-            console.log(JSON.stringify({ error: "El carrito está vacío" }));
-        } else {
-            console.log(JSON.stringify({ success: "Compra realizada con éxito", carrito: cart }));
-            localStorage.removeItem('productos');
-            setCart([]);
-            setTotalPrice(0);
-        }
+        const carrito = localStorage.getItem('productos');
+        console.log("Compra realizada con el carrito:", carrito);
+        // Aquí puedes implementar la lógica para enviar la información de la compra
     }
 
     return (

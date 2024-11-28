@@ -7,8 +7,8 @@ version: '3.9'
 services:
   react-app:
     build: 
-      # context: https://github.com/etec-integration-project/etec-pi-2024-frontend-Santinolopez56.git
-      context: ./etec-pi-2024-frontend-Santinolopez56
+      context: https://github.com/etec-integration-project/etec-pi-2024-frontend-Santinolopez56.git
+      # context: ./etec-pi-2024-frontend-Santinolopez56
       dockerfile: frontend/Dockerfile
     networks:
       - lopez-app-network

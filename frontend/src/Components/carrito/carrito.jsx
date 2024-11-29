@@ -53,7 +53,7 @@ function Carrito() {
         e.preventDefault()
         const carrito = localStorage.getItem('productos');
         console.log("Compra realizada con el carrito:", carrito);
-        axios.post("/app/realizarcompra",{
+        axios.post("/app/creacionuser/realizarcompra",{
             cart:JSON.stringify(localStorage.getItem("productos"))
         })
     }

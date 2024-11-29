@@ -49,13 +49,16 @@ function Carrito() {
         actualizarCarrito(newCart);
     }
 
-    function realizarCompra(e) {
+    async function realizarCompra(e) {
         e.preventDefault()
         const carrito = localStorage.getItem('productos');
         console.log("Compra realizada con el carrito:", carrito);
-        axios.post("/app/creacionuser/realizarcompra",{
+        // alert(`Gracias por su compra`);
+        await axios.post("/app/creacionuser/realizarcompra",{
             cart:JSON.stringify(localStorage.getItem("productos"))
-        })
+        });
+        
+        alert(`Compra realizada con éxito: ${carrito.map(cart => `${carrito[0].quantity}x ${carrito[0].name}, `)}` )
     }
 
     return (
@@ -77,6 +80,7 @@ function Carrito() {
             )}
             <h3>Total: ${totalPrice.toFixed(2)}</h3>
             <button onClick={(e) => realizarCompra(e)}>Realizar compra</button>
+            
         </div>
     );
 }

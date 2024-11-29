@@ -1,4 +1,4 @@
-
+import Axios from 'Axios';
 import React, { useState } from "react";
 import instagram from "../../multimedia/instagram.png";
 import twitter from "../../multimedia/twitter.png";
@@ -33,25 +33,56 @@ function Footer() {
   const [opinionPagina, setOpinionPagina] = useState("");
 
   
+  // async function enviarPilotoFavorito(e) {
+  //   e.preventDefault();
+  //   try {
+  //     const response = await fetch("/app/creacionuser/pilotofavorito", {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify({ piloto: pilotoFavorito }),
+
+  //       credentials:"include"
+  //     });
+  //     if (response.ok) {
+  //       alert("Piloto favorito guardado exitosamente");
+  //       setPilotoFavorito("");
+  //     } else {
+  //       alert("Error al guardar el piloto favorito");
+  //     }
+  //   } catch (error) {
+  //     console.error("Error al enviar el piloto favorito:", error);
+  //   }
+  // }
+
   async function enviarPilotoFavorito(e) {
     e.preventDefault();
+
+    console.log(pilotoFavorito);
+  
     try {
-      const response = await fetch("/app/creacionuser/pilotofavorito", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ piloto: pilotoFavorito }),
-      });
-      if (response.ok) {
+      // Hacer la solicitud POST con Axios, incluyendo las cookies
+      const response = await axios.post("/app/creacionuser/pilotofavorito", 
+        {
+          piloto: pilotoFavorito
+        },
+        {
+          // Incluir las cookies en la solicitud
+          withCredentials: true
+        }
+      );
+  
+      // Verificar si la respuesta fue exitosa
+      if (response.status >= 200 && response.status < 300) {
         alert("Piloto favorito guardado exitosamente");
-        setPilotoFavorito("");
+        setPilotoFavorito("");  // Limpiar el campo
       } else {
         alert("Error al guardar el piloto favorito");
       }
     } catch (error) {
       console.error("Error al enviar el piloto favorito:", error);
+      alert("Hubo un problema al enviar el piloto favorito.");
     }
   }
-
   
   async function enviarOpinionPagina(e) {
     e.preventDefault();

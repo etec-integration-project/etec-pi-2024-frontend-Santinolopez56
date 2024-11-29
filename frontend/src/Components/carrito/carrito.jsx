@@ -58,7 +58,8 @@ function Carrito() {
             cart:JSON.stringify(localStorage.getItem("productos"))
         });
 
-        alert(`Compra realizada con éxito: ${Object.entries(JSON.parse(carrito)).map(cart => `${cart[0].quantity}x ${cart[0].name}, `)}` )
+        alert(`Compra realizada con éxito: ${Object.entries(JSON.parse(carrito)).map(([key, value]) => `${value.quantity}x ${value.name}`).join(', ')}` );
+
     }
 
     return (

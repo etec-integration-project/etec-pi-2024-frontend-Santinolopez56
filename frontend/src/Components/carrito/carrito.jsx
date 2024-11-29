@@ -49,7 +49,8 @@ function Carrito() {
         actualizarCarrito(newCart);
     }
 
-    function realizarCompra() {
+    function realizarCompra(e) {
+        e.preventDefault()
         const carrito = localStorage.getItem('productos');
         console.log("Compra realizada con el carrito:", carrito);
         axios.post("/app/creacionuser/realizarcompra",{
@@ -75,7 +76,7 @@ function Carrito() {
                 <p>El carrito está vacío</p>
             )}
             <h3>Total: ${totalPrice.toFixed(2)}</h3>
-            <button onClick={() => realizarCompra()}>Realizar compra</button>
+            <button onClick={(e) => realizarCompra(e)}>Realizar compra</button>
         </div>
     );
 }

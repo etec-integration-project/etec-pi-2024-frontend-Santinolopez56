@@ -89,7 +89,7 @@ function Footer() {
 
     // Asumimos que 'opinionPagina', 'userID' y 'productoID' están definidos en el componente
     try {
-      const response = await fetch("/app/creacionusuario/opinion", {
+      const response = await fetch("/app/creacionuser/opinion", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

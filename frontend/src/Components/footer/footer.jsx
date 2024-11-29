@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import instagram from "../../multimedia/instagram.png";
 import twitter from "../../multimedia/twitter.png";
@@ -35,7 +36,7 @@ function Footer() {
   async function enviarPilotoFavorito(e) {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:4000/api/piloto-favorito", {
+      const response = await fetch("/app/creacionuser/pilotofavorito", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ piloto: pilotoFavorito }),

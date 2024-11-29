@@ -86,22 +86,30 @@ function Footer() {
   
   async function enviarOpinionPagina(e) {
     e.preventDefault();
+
+    // Asumimos que 'opinionPagina', 'userID' y 'productoID' están definidos en el componente
     try {
-      const response = await fetch("http://localhost:4000/api/opinion-pagina", {
+      const response = await fetch("/app/creacionusuario/opinion", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ opinion: opinionPagina }),
+        body: JSON.stringify({
+          userID: userID,              // Asegúrate de tener el 'userID' disponible en tu componente
+          productoID: productoID,      // Asegúrate de tener el 'productoID' correspondiente
+          opinion: opinionPagina,     // El texto de la opinión
+        }),
       });
+
       if (response.ok) {
         alert("Opinión guardada exitosamente");
-        setOpinionPagina("");
+        setOpinionPagina(""); // Limpiar el campo de opinión después de guardar
       } else {
         alert("Error al guardar la opinión");
       }
     } catch (error) {
       console.error("Error al enviar la opinión:", error);
     }
-  }
+}
+
 
   return (
     <footer>

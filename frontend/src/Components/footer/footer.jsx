@@ -1,4 +1,4 @@
-import Axios from 'Axios';
+import axios from 'axios';
 import React, { useState } from "react";
 import instagram from "../../multimedia/instagram.png";
 import twitter from "../../multimedia/twitter.png";

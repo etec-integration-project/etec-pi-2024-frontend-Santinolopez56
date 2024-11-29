@@ -40,6 +40,8 @@ function Catalogo() {
     }
 
     localStorage.setItem('productos', JSON.stringify(cart))
+
+    alert(`${producto.name} ha sido añadido a tu carrito.`);
   }
 
   return (

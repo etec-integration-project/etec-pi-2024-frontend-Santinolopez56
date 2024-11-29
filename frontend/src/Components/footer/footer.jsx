@@ -93,8 +93,7 @@ function Footer() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          // userID: userID,              // Asegúrate de tener el 'userID' disponible en tu componente
-          productoID: productoID,      // Asegúrate de tener el 'productoID' correspondiente
+          // userID: userID,              // Asegúrate de tener el 'userID' disponible en tu componente      // Asegúrate de tener el 'productoID' correspondiente
           opinion: opinionPagina,     // El texto de la opinión
         }),
       });

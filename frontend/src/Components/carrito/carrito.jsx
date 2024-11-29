@@ -57,8 +57,8 @@ function Carrito() {
         await axios.post("/app/creacionuser/realizarcompra",{
             cart:JSON.stringify(localStorage.getItem("productos"))
         });
-        
-        alert(`Compra realizada con éxito: ${carrito.map(cart => `${carrito[0].quantity}x ${carrito[0].name}, `)}` )
+
+        alert(`Compra realizada con éxito: ${carrito.map(cart => `${cart[0].quantity}x ${cart[0].name}, `)}` )
     }
 
     return (

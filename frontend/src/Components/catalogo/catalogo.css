@@ -1,0 +1,54 @@
+@import URL(https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap);
+@import URL(https://fonts.googleapis.com/css2?family=Pathway+Extreme:wght@300&display=swap);
+
+.catalog-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  background-color: black;
+  padding: 20px;
+}
+
+.product-card {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  padding: 10px;
+}
+
+.product-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.product-name {
+  color: black;
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.product-price {
+  color: black;
+  font-size: 1em;
+}
+
+.catalogo-buy-button { 
+  background-color: black; 
+  color: red; 
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 1em;
+  font-family: 'Raleway', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.catalogo-buy-button:hover {
+  background-color: #333; 
+}

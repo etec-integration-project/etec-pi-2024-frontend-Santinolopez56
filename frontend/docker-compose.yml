@@ -1,0 +1,54 @@
+# docker compose up -d mysqld
+# docker compose up -d app
+# docker compose down app
+# docker compose up --build
+
+version: '3.9'
+services:
+  react-app:
+    build: 
+      context: https://github.com/etec-integration-project/etec-pi-2024-frontend-Santinolopez56.git
+      # context: ./etec-pi-2024-frontend-Santinolopez56
+      dockerfile: frontend/Dockerfile
+    networks:
+      - lopez-app-network
+
+  mysqldb:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=f1-storedb
+    ports:
+      - "3307:3306"
+    networks:
+      - lopez-app-network
+
+  app:
+    build: 
+      context: https://github.com/etec-integration-project/etec-pi-2024-backend-Santinolopez56.git
+      dockerfile: Dockerfile
+    depends_on:
+      - mysqldb
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=f1-storedb
+      - MYSQLDB_HOST=mysqldb
+      - MYSQL_USER= root
+      - MYSQL_DOCKER_PORT=3306
+      - JWT_SECRET= hola
+    networks:
+      - lopez-app-network
+
+  nginx:
+    build: https://raw.githubusercontent.com/etec-integration-project/etec-pi-2024-backend-Santinolopez56/refs/heads/main/proxy/Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - react-app
+      - app
+    networks:
+      - lopez-app-network
+
+networks:
+  lopez-app-network:
+    driver: bridge
